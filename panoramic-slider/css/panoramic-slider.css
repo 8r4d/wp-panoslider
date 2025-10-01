@@ -1,0 +1,82 @@
+	.panoramic-slider, .panoramic-slider-editor {
+		overflow-y: hidden;
+		white-space: nowrap;
+		position: relative;
+	}
+
+	.panoramic-slider img, .panoramic-slider-editor img {
+		display: block;
+		height: 100%;
+		width: auto;
+		user-select: none;
+		pointer-events: none;
+	}
+
+	.panoramic-slider-wrapper .left-arrow::before,
+	.panoramic-slider-wrapper .right-arrow::before {
+		content: '';
+		display: block;
+		width: 0;
+		height: 0;
+		margin: auto;
+	}
+
+	.panoramic-slider-wrapper .left-arrow::before {
+		border-top: 8px solid transparent;
+		border-bottom: 8px solid transparent;
+		border-right: 12px solid white;
+	}
+
+	.panoramic-slider-wrapper .right-arrow::before {
+		border-top: 8px solid transparent;
+		border-bottom: 8px solid transparent;
+		border-left: 12px solid white;
+	}
+
+	/* Button hover/fade */
+	.panoramic-slider-wrapper button:hover {
+		background: rgba(0,0,0,0.5);
+	}
+
+	.panoramic-slider-wrapper button {
+		border: none;
+		font-size: 20px;
+		user-select: none;
+	}
+
+	.panoramic-slider-wrapper {
+		position: relative; /* makes it the positioning context for arrows */
+	}
+
+	/* Both arrows */
+	.panoramic-slider-wrapper .left-arrow,
+	.panoramic-slider-wrapper .right-arrow {
+		position: absolute;
+		top: 75%; /* center vertically */
+		transform: translateY(-50%); /* adjust for button height */
+		z-index: 10;
+		width: 36px;
+		height: 36px;
+		background: rgba(0,0,0,0.3);
+		border-radius: 5%;
+		opacity: 0;
+		transition: opacity 0.3s;
+		cursor: pointer;
+		border: none; /* make sure no default button border shows */
+	}
+
+	/* Left edge */
+	.panoramic-slider-wrapper .left-arrow {
+		left: 10px;
+	}
+
+	/* Right edge */
+	.panoramic-slider-wrapper .right-arrow {
+		right: 10px;
+	}
+
+	/* Fade in arrows on hover */
+	.panoramic-slider-wrapper:hover .left-arrow,
+	.panoramic-slider-wrapper:hover .right-arrow {
+		opacity: 1;
+	}
